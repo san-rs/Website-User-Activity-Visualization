@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Visualize</title>
+</head>
+<body onload='func()'>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<div align='center'>
+    <select id='purpose'>
+        <option value="1" selected="selected">Main Page</option>
+        <option value="2">User {{user}} activity</option>
+        <option value="3">All users activity</option>
+        <option value="4">User {{user}} questions viewed</option>
+        <option value="5">All users questions viewed</option>
+    </select>
+</div>
+
+<div id="default"><h1 align='center'>Welcome to Visualizations</h1><h2 align='center'>Select an option from dropdown</h2><br>
+    <h2 align='center'>The 3 interactions with data are:</h2>
+    <h3 align='center'>1. Dropdown box which changes output shown based on selection.<br>
+                       2. Mouse Hover over each section highlights it and displays Percentage of that data.<br>
+                       3. Mouse Click on each section drags that particular section out to show it in prominence.</div>
+    </h3>
+
+<div id="user" style="min-width: 400px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div id="user1">
+    <h2 align='center'><u>Analysis and Findings</u></h2>
+    <h3 align='center'>1. Mouse Movement Downwards is more compared to Upwards movement.<br>This shows that User 'aaa' is interested specifically on particular elements in the bottom part of the visible page.<br><br>2. Text selection of User 'aaa' is high while button clicks and link clicks are normal.<br> This might mean that User 'aaa' has selected and possibly copied some text meaning he possibly wanted to use it somewhere.<br><br>3. See User aaa's 'questions viewed' visualization for more in-depth analysis.</h3>
+</div>
+<div id="user2">
+    <h2 align='center'><u>Analysis and Findings</u></h2>
+    <h3 align='center'>1. Mouse Movement is more compared to Scrolling.<br>This shows that User 'bbb' is focusing specifically on particular elements in a page rather than scrolling randomly.<br><br>2. User 'bbb' text selection is higher comparatively and he possibly selected and copied some text.<br>This may mean that User 'bbb' liked some answers and possibly wanted to use it somewhere.<br><br>3. See User bbb's 'questions viewed' visualization for more in-depth analysis.</h3>
+</div>
+<div id="user3">
+    <h2 align='center'><u>Analysis and Findings</u></h2>
+    <h3 align='center'>1. Link clicks are more when compared to others.<br>This shows that User 'ccc' was browsing more through all questions in general before focusing on one question.<br><br>2. User 'ccc' text selection is higher comparatively and he possibly selected some text after deciding on his question.<br>This may mean that User 'ccc' liked some answers and possibly wanted to use it somewhere.<br><br>3. See User ccc's 'questions viewed' visualization for more in-depth analysis.</h3>
+</div>
+
+<div id="all" style="min-width: 400px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+<div id="indques" style="min-width: 400px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div id="indques1">
+    <h2 align='center'><u>Analysis and Findings</u></h2>
+    <h3 align='center'>1. Question 13 is the most viewed upon by user 'aaa' according to the Visualization.<br>This means that Question 13 was of more interest to user 'aaa'.<br><br>2. Question 13's tags include 'java','jsp','java-ee','servlets' and 'file-upload'.<br>Since the whole page is related to java questions, we dont give much importance to the 'java' and 'java-ee' tag.<br>But, the 'jsp' and 'servlets' tag is of importance to us.<br>Since, Question 13 has been visited more by user 'aaa', that means currently 'jsp' and 'servlets' are important for user 'aaa'.<br>Hence we will suggest <font color="red">'jsp'</font> and <font color="red">'servlets'</font> related questions in Java to user 'aaa'.</h3></div>
+<div id="indques2">
+    <h2 align='center'><u>Analysis and Findings</u></h2>
+    <h3 align='center'>1. Question 2 is the most viewed upon by user 'bbb' according to the Visualization.<br>This means that Question 2 was of more interest to user 'bbb'.<br><br>2. Question 2's tags include 'java', 'string' and 'equality'.<br>Since the whole page is related to java questions, we dont give much importance to the 'java' tag.<br>But, the 'string' tag is of importance to us.<br>Since, Question 2 has been visited more by user 'bbb', that means currently 'strings' is important for user 'bbb'.<br>Hence we will suggest <font color="red">'String'</font> related questions in Java to user 'bbb'.</h3>
+</div>
+<div id="indques3">
+    <h2 align='center'><u>Analysis and Findings</u></h2>
+    <h3 align='center'>1. Question 8 is the most viewed upon by user 'ccc' according to the Visualization.<br>This means that Question 8 was of most interest to user 'ccc' after some undecided link clicking as seen by User activity visualization.<br><br>2. Question 8 tags include 'java','swing' and 'layout-manager'.<br>Since the whole page is related to java questions, we dont give much importance to the 'java' tag.<br>But, the 'swing' tag is of importance to us.<br>Since, Question 8 has been visited more times by user 'ccc', that means currently 'swings' is important for user 'ccc'.<br>Hence we will suggest <font color="red">'Swing'</font> related questions in Java to user 'ccc'.</h3>
+</div>
+
+<div id="allques" style="min-width: 400px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div id="allques1">
+    <h2 align='center'><u>Analysis and Findings</u></h2>
+    <h3 align='center'>1. Question 2 is the most viewed upon by the users according to the Visualization.<br>This means that Question 2 has proven to be solving most of the users' doubts as it is top viewed.<br><br>2. Question 2 tags include 'java', 'string' and 'equality'.<br>Since the whole page is related to java questions, we dont give much importance to the 'java' tag.<br>But, the 'string' tag is of importance to us.<br>Since, the Question 2 has been visited more times by users, that means 'strings' is currently a <font color="red">HOT SEARCH TOPIC</font> in StackOverflow.</h3>
+</div>
+
+<script>
+    var u1 = {{ user|tojson }};
+    var usertemp = JSON.parse(u1);
+
+    var data = {{ temp2|tojson }};
+    var temp = JSON.parse(data);
+
+    var data1 = {{ temp7|tojson }};
+    var temp1 = JSON.parse(data1);
+
+    var data3 = {{ temp8|tojson }};
+    var temp3 = JSON.parse(data3);
+
+    var data4 = {{ temp9|tojson }};
+    var temp4 = JSON.parse(data4);
+</script>
+
+<script>
+    function func(){
+        $("#user").hide();
+        $("#user1").hide();
+        $("#user2").hide();
+        $("#user3").hide();
+        $("#all").hide();
+        $("#indques").hide();
+        $("#indques1").hide();
+        $("#indques2").hide();
+        $("#indques3").hide();
+        $("#allques").hide();
+        $("#allques1").hide();
+    }
+</script>
+
+<script>
+    $('#purpose').on('change', function() {
+        if ( this.value == '1')
+        {
+            $("#default").show();
+            $("#user").hide();
+            $("#user1").hide();
+            $("#user2").hide();
+            $("#user3").hide();
+            $("#all").hide();
+            $("#indques").hide();
+            $("#indques1").hide();
+            $("#indques2").hide();
+            $("#indques3").hide();
+            $("#allques").hide();
+            $("#allques1").hide();
+        }
+        if ( this.value == '2')
+        {
+            $("#user").show();
+            if(usertemp=='aaa'){
+                $("#user1").show();
+                $("#user2").hide();
+                $("#user3").hide();
+            }
+            if(usertemp=="bbb"){
+                $("#user2").show();
+                $("#user1").hide();
+                $("#user3").hide();
+            }
+            if(usertemp=='ccc'){
+                $("#user3").show();
+                $("#user1").hide();
+                $("#user2").hide();
+            }
+            $("#default").hide();
+            $("#all").hide();
+            $("#indques").hide();
+            $("#indques1").hide();
+            $("#indques2").hide();
+            $("#indques3").hide();
+            $("#allques").hide();
+            $("#allques1").hide();
+        }
+        if ( this.value == '3')
+        {
+            $("#all").show();
+            $("#default").hide();
+            $("#user").hide();
+            $("#user1").hide();
+            $("#user2").hide();
+            $("#user3").hide();
+            $("#indques").hide();
+            $("#indques1").hide();
+            $("#indques2").hide();
+            $("#indques3").hide();
+            $("#allques").hide();
+            $("#allques1").hide();
+        }
+        if ( this.value == '4')
+        {   
+            $("#indques").show();
+            if(usertemp=='aaa'){
+                $("#indques1").show();
+                $("#indques2").hide();
+                $("#indques3").hide();
+            }
+            if(usertemp=="bbb"){
+                $("#indques2").show();
+                $("#indques1").hide();
+                $("#indques3").hide();
+            }
+            if(usertemp=='ccc'){
+                $("#indques3").show();
+                $("#indques1").hide();
+                $("#indques2").hide();
+            }
+            $("#default").hide();
+            $("#user").hide();
+            $("#user1").hide();
+            $("#user2").hide();
+            $("#user3").hide();
+            $("#all").hide();
+            $("#allques").hide();
+            $("#allques1").hide();
+        }
+        if ( this.value == '5')
+        {
+            $("#allques").show();
+            $("#allques1").show();
+            $("#default").hide();
+            $("#user").hide();
+            $("#user1").hide();
+            $("#user2").hide();
+            $("#user3").hide();
+            $("#all").hide();
+            $("#indques").hide();
+            $("#indques1").hide();
+            $("#indques2").hide();
+            $("#indques3").hide();
+        }
+    });
+</script>
+
+<script>
+
+// Radialize the colors
+Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+    return {
+        radialGradient: {
+            cx: 0.5,
+            cy: 0.3,
+            r: 1.0
+        },
+        stops: [
+            [0, color],
+            [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+        ]
+    };
+});
+
+// Build the chart
+Highcharts.chart('user', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'VISUALIZATION OF INDIVIDUAL USER ACTIONS'
+    },
+    subtitle: {
+        text: 'Click or Hover on each section'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer'
+        }
+    },
+    series: [{
+        name: 'Brands',
+        data: [
+            { name: 'Scrolling Upwards', y: temp.SU },
+            { name: 'Scrolling Downwards',y: temp.SD },
+            { name: 'Mouse Moving Up', y: temp.MU },
+            { name: 'Mouse Moving Down', y: temp.MD }, 
+            { name: 'Text Selection', y: temp.TS },
+            { name: 'Button Clicks', y: temp.BC },
+            { name: 'Link Clicks', y: temp.LC }
+        ]
+    }]
+});
+</script>
+
+<script>
+
+// Build the chart
+Highcharts.chart('all', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'VISUALIZATION OF ALL USERS ACTIONS'
+    },
+    subtitle: {
+        text: 'Click or Hover on each section'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer'
+        }
+    },
+    series: [{
+        name: 'Brands',
+        data: [
+            { name: 'Scrolling Upwards', y: temp1.SU },
+            { name: 'Scrolling Downwards',y: temp1.SD },
+            { name: 'Mouse Moving Up', y: temp1.MU },
+            { name: 'Mouse Moving Down', y: temp1.MD }, 
+            { name: 'Text Selection', y: temp1.TS },
+            { name: 'Button Clicks', y: temp1.BC },
+            { name: 'Link Clicks', y: temp1.LC }
+        ]
+    }]
+});
+</script>
+
+<script>
+
+// Build the chart
+Highcharts.chart('indques', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'VISUALIZATION OF INDIVIDUAL USER QUESTIONS VISITED'
+    },
+    subtitle: {
+        text: 'Click or Hover on each section'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer'
+        }
+    },
+    series: [{
+        name: 'Brands',
+        data: [
+            { name: 'Question 1', y: temp4.q1 },
+            { name: 'Question 2', y: temp4.q2 },
+            { name: 'Question 3', y: temp4.q3 },
+            { name: 'Question 4', y: temp4.q4 },
+            { name: 'Question 5', y: temp4.q5 },
+            { name: 'Question 6', y: temp4.q6 },
+            { name: 'Question 7', y: temp4.q7 },
+            { name: 'Question 8', y: temp4.q8 },
+            { name: 'Question 9', y: temp4.q9 },
+            { name: 'Question 10', y: temp4.q10 },
+            { name: 'Question 11', y: temp4.q11 },
+            { name: 'Question 12', y: temp4.q12 },
+            { name: 'Question 13', y: temp4.q13 },
+            { name: 'Question 14', y: temp4.q14 }
+        ]
+    }]
+});
+</script>
+
+<script>
+
+// Build the chart
+Highcharts.chart('allques', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'VISUALIZATION OF ALL USERS QUESTIONS VISITED'
+    },
+    subtitle: {
+        text: 'Click or Hover on each section'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer'
+        }
+    },
+    series: [{
+        name: 'Brands',
+        data: [
+            { name: 'Question 1', y: temp3.q1 },
+            { name: 'Question 2', y: temp3.q2 },
+            { name: 'Question 3', y: temp3.q3 },
+            { name: 'Question 4', y: temp3.q4 },
+            { name: 'Question 5', y: temp3.q5 },
+            { name: 'Question 6', y: temp3.q6 },
+            { name: 'Question 7', y: temp3.q7 },
+            { name: 'Question 8', y: temp3.q8 },
+            { name: 'Question 9', y: temp3.q9 },
+            { name: 'Question 10', y: temp3.q10 },
+            { name: 'Question 11', y: temp3.q11 },
+            { name: 'Question 12', y: temp3.q12 },
+            { name: 'Question 13', y: temp3.q13 },
+            { name: 'Question 14', y: temp3.q14 }
+        ]
+    }]
+});
+</script>
+
+</body>
+</html>
